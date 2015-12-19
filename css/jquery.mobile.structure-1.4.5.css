@@ -261,7 +261,6 @@ div.ui-mobile-viewport {
 .ui-header .ui-btn,
 .ui-footer .ui-btn {
 	font-size: 12.5px;
-	display: inline-block;
 	vertical-align: middle;
 }
 .ui-header .ui-controlgroup .ui-btn-icon-notext,
@@ -1614,7 +1613,7 @@ li.ui-block-e {
 .ui-controlgroup,
 fieldset.ui-controlgroup {
 	padding: 0;
-	margin: .5em 0;
+	margin: 10px 0;
 }
 .ui-field-contain .ui-controlgroup,
 .ui-field-contain fieldset.ui-controlgroup {
@@ -1641,7 +1640,6 @@ fieldset.ui-controlgroup {
 	list-style: none;
 }
 .ui-controlgroup-horizontal .ui-controlgroup-controls {
-	display: inline-block;
 	vertical-align: middle;
 }
 .ui-controlgroup-horizontal .ui-controlgroup-controls:before,

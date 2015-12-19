@@ -15,92 +15,26 @@
 </head>
 <body>
 	<div data-role="page" class="w100" id="historico">
+		<header data-role="header" data-position="fixed">
 		<div id="headerhistorico">
 			<a href="#" class="atras" data-rel="back"><i class="fa fa-chevron-left"></i> Atras</a>
 		</div>
 		<div id="filtroshistorico">
-			<select name="estado" id="">
-				<option value="">Estado</option>
-			</select>
-			<select name="giro" id="">
-				<option value="">Giro</option>
-			</select>
-			<select name="subgiro" id="">
-				<option value="">Subgiro</option>
-			</select>
+			<input type="text" name="buscar" id="buscar" class="busqueda">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			    <select name="estado" id="estado">
+			        <option value="">Estado</option>
+			    </select>
+			    <select name="giro" id="giro">
+			        <option value="">Giro</option>
+			    </select>
+			    <select name="subgiro" id="subgiro">
+			        <option value="">Subgiro</option>
+			    </select>
+			</fieldset>
 		</div>
-		<div id="contenedorEstablecimientos" class="container">
-			<div class="establecimiento">
-				<div class="imagenEstablecimiento">
-					<img class="w100" src="http://www.grupomedios.com/intranet/imagenes/establecimientos/logos/10755_logogrande.png" alt="">
-				</div>
-				<div class="descripcion">
-					<h2 class="tituloEstablecimiento">Casa Tios</h2>
-					<p class="descripcionEstablecimiento">Paseo de las Palmas, No. 530, Lomas de Chapultepec I SEcción, Miguel Hidalgo</p>
-				</div>
-					<div class="circulo">
-					<div class="promo">
-						<span>25% <br> 10%</span>
-					</div>
-				</div>
-			</div>
-			<div class="establecimiento">
-				<div class="imagenEstablecimiento">
-					<img class="w100" src="http://www.grupomedios.com/intranet/imagenes/establecimientos/logos/10755_logogrande.png" alt="">
-				</div>
-				<div class="descripcion">
-					<h2 class="tituloEstablecimiento">Casa Tios</h2>
-					<p class="descripcionEstablecimiento">Paseo de las Palmas, No. 530, Lomas de Chapultepec I SEcción, Miguel Hidalgo</p>
-				</div>
-					<div class="circulo">
-					<div class="promo">
-						<span>25% <br> 10%</span>
-					</div>
-				</div>
-			</div>
-			<div class="establecimiento">
-				<div class="imagenEstablecimiento">
-					<img class="w100" src="http://www.grupomedios.com/intranet/imagenes/establecimientos/logos/10755_logogrande.png" alt="">
-				</div>
-				<div class="descripcion">
-					<h2 class="tituloEstablecimiento">Casa Tios</h2>
-					<p class="descripcionEstablecimiento">Paseo de las Palmas, No. 530, Lomas de Chapultepec I SEcción, Miguel Hidalgo</p>
-				</div>
-					<div class="circulo">
-					<div class="promo">
-						<span>25% <br> 10%</span>
-					</div>
-				</div>
-			</div>
-			<div class="establecimiento">
-				<div class="imagenEstablecimiento">
-					<img class="w100" src="http://www.grupomedios.com/intranet/imagenes/establecimientos/logos/10755_logogrande.png" alt="">
-				</div>
-				<div class="descripcion">
-					<h2 class="tituloEstablecimiento">Casa Tios</h2>
-					<p class="descripcionEstablecimiento">Paseo de las Palmas, No. 530, Lomas de Chapultepec I SEcción, Miguel Hidalgo</p>
-				</div>
-					<div class="circulo">
-					<div class="promo">
-						<span>25% <br> 10%</span>
-					</div>
-				</div>
-			</div>
-			<div class="establecimiento">
-				<div class="imagenEstablecimiento">
-					<img class="w100" src="http://www.grupomedios.com/intranet/imagenes/establecimientos/logos/10755_logogrande.png" alt="">
-				</div>
-				<div class="descripcion">
-					<h2 class="tituloEstablecimiento">Casa Tios</h2>
-					<p class="descripcionEstablecimiento">Paseo de las Palmas, No. 530, Lomas de Chapultepec I SEcción, Miguel Hidalgo</p>
-				</div>
-					<div class="circulo">
-					<div class="promo">
-						<span>25% <br> 10%</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		</header>
+		<div id="contenedorEstablecimientos" class="container"></div>
 		<div id="footer">
 			<ul id="menufooter">
 				<li><a href=""><i class="fa fa-home"></i></a><br><span class="spanfooter">Inicio</span></li>
@@ -110,5 +44,6 @@
 			</ul>
 		</div>
 	</div>
+	
 </body>
 </html>
