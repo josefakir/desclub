@@ -34,7 +34,11 @@ input:-moz-placeholder { text-align:center; }
 .ui-select {width: 33%;color: #fff}
 #latitud{display: none}
 #longitud{display: none}
-
+#map{
+     height: 300px;
+    width: 300px;
+    background: red
+}
 
 .ui-loader .ui-icon-loading {
   background-color: #000; 
@@ -48,6 +52,6 @@ input:-moz-placeholder { text-align:center; }
 }
 
 .ui-icon-loading {
-  background: url(images/ajax-loader.gif);
+  background: url(../images/ajax-loader.gif);
   background-size: 2.875em 2.875em;
  }

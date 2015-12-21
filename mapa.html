@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Descuentos - Desclub</title>
+	<title>Mapa - Desclub</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/template.css">
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css">
@@ -14,27 +14,8 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<div data-role="page" class="w100" id="historico">
-		<header data-role="header" data-position="fixed">
-		<div id="headerhistorico">
-			<a href="#" class="atras" data-rel="back"><i class="fa fa-chevron-left"></i> Atras</a>
-		</div>
-		<div id="filtroshistorico">
-			<input type="text" name="buscar" id="buscar" class="busqueda">
-			<fieldset data-role="controlgroup" data-type="horizontal">
-			    <select name="estado" id="estado">
-			        <option value="">Estado</option>
-			    </select>
-			    <select name="giro" id="giro">
-			        <option value="">Giro</option>
-			    </select>
-			    <select name="subgiro" id="subgiro">
-			        <option value="">Subgiro</option>
-			    </select>
-			</fieldset>
-		</div>
-		</header>
-		<div id="contenedorEstablecimientos" class="container"></div>
+	<div data-role="page" class="w100" id="mapa">
+		<div id="map"></div>
 		<div id="footer">
 			<ul id="menufooter">
 				<li><a href=""><i class="fa fa-home"></i></a><br><span class="spanfooter">Inicio</span></li>
@@ -44,6 +25,5 @@
 			</ul>
 		</div>
 	</div>
-	
 </body>
 </html>
