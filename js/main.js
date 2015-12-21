@@ -1,10 +1,15 @@
 seccion = "";
-offset = 0;
+pagina = 0;
 limit = 10;
+if(pagina==0){
+	offset = pagina*limit;
+}else{
+	offset = pagina*limit;
+}
 estado = "";
 busqueda = "";
+
 function obtenerDescuentos(offset,limit,subgiros,estado,busqueda){
-	$('#contenedorEstablecimientos').html('');
 	url = "http://grupomedios.com/intranet/wsdesclub/?m=descuentos&o="+offset+"&l="+limit+"&c="+subgiros+"&lat="+$('#latitud').html()+"&long="+$('#longitud').html()+"&e="+estado+"&b="+busqueda;
 	$.ajax({
 		url : url,
@@ -25,6 +30,8 @@ function obtenerDescuentos(offset,limit,subgiros,estado,busqueda){
  				noext = r[index].Numero_Extterior;
  				noint = r[index].Numero_interior;
  				colonia = r[index].Colonia;
+ 				distancia = parseFloat(r[index].Distancia);
+ 				distancia = distancia.toFixed(3);
  				detallepromo = r[index].detalle_promo;
  				if(detallepromo==""){
  					detallepromo = "promo";
@@ -37,7 +44,7 @@ function obtenerDescuentos(offset,limit,subgiros,estado,busqueda){
  				}else{
  					imagen = logogrande;
  				}
- 				output = '<div class="establecimiento"><div class="imagenEstablecimiento"><img class="w100 imgEst" src="'+imagen+'" alt=""></div><div class="descripcion"><h2 class="tituloEstablecimiento">'+marca+'</h2><p class="descripcionEstablecimiento">'+calle+' '+noext+' '+noint+' '+colonia+'</p></div><div class="circulo"><div class="promo"><span>'+detallepromo+'</span></div></div></div>';
+ 				output = '<div class="establecimiento"><div class="imagenEstablecimiento"><img class="w100 imgEst" src="'+imagen+'" alt=""></div><div class="descripcion"><h2 class="tituloEstablecimiento">'+marca+'</h2><p class="descripcionEstablecimiento">'+calle+' '+noext+' '+noint+' '+colonia+'</p><p class="distancia">'+distancia+' m</p></div><div class="circulo"><div class="promo"><span>'+detallepromo+'</span></div></div></div>';
 				$('#contenedorEstablecimientos').append(output);
 			});
 			$('.imgEst').error(function(){
@@ -47,14 +54,6 @@ function obtenerDescuentos(offset,limit,subgiros,estado,busqueda){
 			$('.ui-loader').fadeOut('fast');
 		}
 	})
-}
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 19.360693100000002, lng: -99.1950667},
-    zoom: 12,
-	mapTypeId: google.maps.MapTypeId.ROADMAP,
-  });
 }
 $(document).on("pagecreate", "#home", function() {
 	if (navigator.geolocation) {
@@ -83,6 +82,12 @@ $(document).on("pagecreate", "#home", function() {
 	});
 });
 $(document).on("pagecreate", "#historico", function() {
+	$('#buscarHistorico').on('keypress', function (event) {
+		if(event.which === 13){
+			busqueda = $('#buscarHistorico').val();
+			obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
+		}
+	});
 	/* FIN AGREGAR SUBGIROS */
 	switch(seccion){
 		case "alimentos" :
@@ -171,36 +176,54 @@ $(document).on("pagecreate", "#historico", function() {
  			});
 		}
 	});
+	$('#contenedorEstablecimientos').html('');
 	obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
 	$('#estado').change(function() {
 		estado = $(this).val();
+		$('#contenedorEstablecimientos').html('');
 		obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
 	});
 	$('#giro').change(function() {
 		subgiros = $(this).val();
+		$('#contenedorEstablecimientos').html('');
 		obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
 	});
 	$('#subgiro').change(function() {
 		subgiros = $(this).val();
+		$('#contenedorEstablecimientos').html('');
 		obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
 	});
-	$('#buscar').on('keypress', function (event) {
-		if(event.which === 13){
-			busqueda = $('#buscar').val();
-			obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
-		}
-	});
 });
-$(document).on("pagecreate", "#mapa", function() {
-	initMap();
-});
-
-
-
-
 
 $(document).ready(function(){
 	$('.menuhome').click(function(e){
 		seccion = $(this).attr('rel');
 	});
 });
+
+
+$(document).on("scrollstart",function(){
+	//console.log($(window).scrollTop())+"---"+$(document).height() - $(window).height();
+  if ($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
+  		pagina++;
+  		offset = pagina * limit;
+  		console.log(pagina);
+  		obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
+  }
+
+});
+
+
+$(document).on("scrollstop",function(){
+	//console.log($(window).scrollTop())+"---"+$(document).height() - $(window).height();
+  if ($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
+  		console.log('bottom');
+  		pagina++;
+  		offset = pagina * limit;
+  		console.log(pagina);
+  		obtenerDescuentos(offset,limit,subgiros,estado,busqueda);
+  }
+
+});
+
+

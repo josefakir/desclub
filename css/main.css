@@ -3,13 +3,13 @@ body{font-family: 'Khula', sans-serif;}
 #logo{width: 117px;margin: 0 auto;display: block;padding-top: 10px;}
 .busqueda{border: 1px solid #cbcbce !important;width: 70%;margin: 0 auto;display: block;height: 20px;margin-top: 6px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;padding: 0 10px;}::-webkit-input-placeholder { text-align:center; }
 input:-moz-placeholder { text-align:center; }
-#content{padding: 20px 0; float: left; width: 100%}
+#content{padding: 20px 0; float: left; width: 100%;    position: relative;z-index: 3;}
 .w33{width: 33.3%; float: left; margin-top: 20px}
-#footer{background: #13a8d0; width: 100%; position: fixed; bottom: 0; height: 50px}
+#footer{background: #13a8d0; width: 100%; position: fixed; bottom: 0; height: 50px; z-index: 99}
 #menufooter{margin-top: 5px}
 #menufooter li{float: left; width: 25%; font-size: 25px; text-align: center}
 #menufooter li a{color: #fff}
-.spanfooter{color: #FFF;font-size: 10px;margin-top: 6px;display: block;}
+.spanfooter{color: #FFF;font-size: 10px;margin-top: 1px;display: block;}
 #headerhistorico{width: 100%; height: 50px;}
 #menuhome li a img{margin: 0 auto;display: block;}
 .atras{color: #fff;text-decoration: none;padding-top: 16px;display: block;padding-left: 5px;}
@@ -20,7 +20,7 @@ input:-moz-placeholder { text-align:center; }
 .moda{background: #c03459}
 .servicios{background: #b0c640}
 .turismo{background: #4fba9c}
-.todas{background: #4fba9c}
+.todas{background: #13a8d0}
 .tituloEstablecimiento{color: #545454;color: #545454;font-weight: bold;font-size: 17px;    margin-bottom: 10px;}
 .descripcionEstablecimiento{color: #ababab;    line-height: 17px;    font-size: 13px;}
 #filtroshistorico{height: 80px;float: left;width: 100%;margin-top: -1px;}
@@ -34,24 +34,8 @@ input:-moz-placeholder { text-align:center; }
 .ui-select {width: 33%;color: #fff}
 #latitud{display: none}
 #longitud{display: none}
-#map{
-     height: 300px;
-    width: 300px;
-    background: red
-}
-
-.ui-loader .ui-icon-loading {
-  background-color: #000; 
-  display: block;
-  margin: 0;
-  width: 2.75em;
-  height: 2.75em;
-  padding: .0625em;
-  -webkit-border-radius: 2.25em;
-  border-radius: 2.25em;
-}
-
-.ui-icon-loading {
-  background: url(../images/ajax-loader.gif);
-  background-size: 2.875em 2.875em;
- }
+#map{height: 100%;width: 100%;position: absolute !important;z-index: 1;}
+.ui-loader .ui-icon-loading {background-color: #000; display: block;margin: 0;width: 2.75em;height: 2.75em;padding: .0625em;-webkit-border-radius: 2.25em;border-radius: 2.25em;}
+.ui-icon-loading {background: url(../images/ajax-loader.gif);background-size: 2.875em 2.875em;}
+p.distancia {color: #e24b2e;margin-top: 5px;font-size: 13px;}
+#map-page, #map-canvas { width: 100%; height: 96%; padding: 0; }
