@@ -1,0 +1,178 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>App Desclub</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" />
+	<link rel="stylesheet" href="css/template.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Khula:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js"></script>
+	<script src="js/app.js"></script>
+	<script>
+	function startTime() {
+	    var today = new Date();
+	    var h = today.getHours();
+	    var m = today.getMinutes();
+	    var s = today.getSeconds();
+	    m = checkTime(m);
+	    s = checkTime(s);
+	    document.getElementById('cronometro').innerHTML =
+	    h + ":" + m + ":" + s;
+	    var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+	    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	    return i;
+	}
+	</script>
+</head>
+
+<body onload="startTime()">
+	<div id="latitud"></div>
+	<div id="longitud"></div>
+	<div id="subgiros"></div>
+	<div id="seccion"></div>
+	<div id="logosingle"></div>
+	<div id="efectivosingle"></div>
+	<div id="tarjetasingle"></div>
+	<div id="vigenciasingle"></div>
+	<div id="sucursalsingle"></div>
+	<div id="direccionsingle"></div>
+	<div id="restriccionessingle"></div>
+	<div id="promocionsingle"></div>
+<!-- //HOME////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div data-role="page" class="w100" id="home">
+		<div id="headerhome">
+			<img id="logo" src="images/logo.jpg" alt="">
+			<input id="buscar" type="text" class="busqueda" placeholder="Buscar descuentos por marca">
+		</div>
+		<div id="content">
+			<div class="container">
+				<ul id="menuhome">
+					<li class="w33"><a class="menuhome" data-transition="flip" data-theme="none" data-corners="false" data-shadow="false" data-inline="true" href="#historico" rel="alimentos"><img src="images/alimentos.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="belleza"><img src="images/belleza.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="educacion"><img src="images/educacion.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="entretenimiento"><img src="images/entretenimiento.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="moda"><img src="images/moda.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="servicios"><img src="images/servicios.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="turismo"><img src="images/turismo.jpg" alt=""></a></li>
+					<li class="w33"><a class="menuhome" data-transition="flip" href="#historico" rel="todas"><img src="images/todas.jpg" alt=""></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!-- //HOME////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //MAPA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div data-role="page" id="map-page" data-url="map-page">
+		<div data-role="header" data-theme="a" data-tap-toggle="false">
+		</div>
+		<div role="main" class="ui-content" id="map-canvas">
+		</div>
+	</div>
+<!-- //MAPA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //HISTORICO////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div data-role="page" class="w100" id="historico">
+		<header data-role="header" data-position="fixed" data-tap-toggle="false">
+		<div id="headerhistorico">
+			<a href="#" class="atras" data-rel="back" data-transition="flip"><i class="fa fa-chevron-left"></i> Atras</a>
+		</div>
+		</header>
+		<div id="filtroshistorico" data-position="fixed">
+			<input type="text" name="buscar" id="buscarHistorico" class="busqueda" placeholder="Buscar descuentos por marca">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			    <select name="estado" id="estado">
+			        <option value="">Estado</option>
+			    </select>
+			    <select name="giro" id="giro">
+			        <option value="">Giro</option>
+			    </select>
+			    <select name="subgiro" id="subgiro">
+			        <option value="">Subgiro</option>
+			    </select>
+			</fieldset>
+		</div>
+		<div id="contenedorEstablecimientos" class="container"></div>
+	</div>
+<!-- //HISTORICO////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //SINGLE////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div data-role="page" class="w100" id="single">
+		<header data-role="header" data-position="fixed" data-tap-toggle="false">
+		<div id="headerhistorico">
+			<a href="#" class="atras" data-rel="back" data-transition="flip"><i class="fa fa-chevron-left"></i> Atras</a>
+		</div>
+		</header>
+		<div id="content">
+			<div class="container">
+				<img src="" alt="" id="single_imagen">
+				<div id="sihayefectivoytarjeta">
+					<p class="tac">Descuento</p>
+					<p id="efectivo_single"></p>
+					<p class="tac">En efectivo</p>
+					<p id="tarjeta_single"></p>
+					<p class="tac" style="margin-bottom:20px">Con Tarjeta</p>
+				</div>
+				<div id="nohayefectivoytarjeta">
+					<p class="tac" id="promocion_single"></p>
+				</div>
+				<p class="tac" id="vigencia_single">Vigente hasta: <span id="vig"></span></p>
+				<a href="" id="usarcupon">Usar cup&oacute;n</a>
+				<p class="tac" id="sucursal_single">7 Clean Leones</p>
+				<p id="direccion_single">Calz. de los Leones, 165, LasÁguilas, Álvaro Obregón</p>
+				<p id="restriccion_single">Aplica solo en pago por anticipado. No aplica en lino, seda, prendas iguales ni con otras promociones.</p>
+			</div>
+			<div id="cupon_tarjeta">
+				<a href="#" id="cerrarcupon"><i class="fa fa-times"></i></a>
+				<div id="cronometro"></div>
+				<div id="emailtarjeta"></div>
+				<div id="nombretarjeta"></div>
+				<div id="membresiatarjeta"></div>
+				<div id="vigenciatarjeta"></div>
+			</div>
+		</div>
+	</div>
+<!-- //SINGLE////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //TARJETA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div data-role="page" class="w100" id="tarjeta">
+		<header data-role="header" data-position="fixed" data-tap-toggle="false">
+		<div id="headerhistorico" style="background:#3ec8ee">
+			<a href="#" class="atras" data-rel="back" data-transition="flip"><i class="fa fa-chevron-left"></i> Atras</a>
+		</div>
+		</header>
+		<div class="w100" id="backtarjeta">
+			<div id="content" style="padding-bottom:80px">
+				<div id="noregistrado">
+					<img id="imagentarjeta" src="images/tarjeta.png" alt="" >
+					<p class="tac">Para utilizar tu tarjeta virtual debes registrarte.</p>
+					<p>&nbsp;</p>
+					<input type="text" name="numerodemembresia" id="numerodemembresia" placeholder="# de membresía">
+					<p class="tac"><a href="#" id="botonregistro"><img src="images/registrate.png" alt=""></a></p>
+				</div>
+				<div id="siregistrado">
+					<img id="imagentarjeta" src="images/tarjeta.png" alt="" >
+					<p class="sesion" id="sesionproyecto"></p>
+					<p class="sesion" id="sesionnombre"></p>
+					<p class="sesion" id="sesionmembresia"></p>
+					<p class="sesion" id="sesionemail"></p>
+					<p class="sesion" id="sesionvigencia"></p>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+	</div>
+<!-- //TARJETA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div id="footer">
+		<ul id="menufooter" data-role="footer" data-position="fixed">
+			<li><a href="index.html" data-transition="flip"><i class="fa fa-home"></i></a><br><span class="spanfooter">Inicio</span></li>
+			<li><a href="#map-page" data-transition="flip" ><i class="fa fa-map-marker"></i></a><br><span class="spanfooter">Mapa</span></li>
+			<li><a href="#recomendados" data-transition="flip"><i class="fa fa-heart-o"></i></a><br><span class="spanfooter">Recomendados</span></li>
+			<li><a href="#tarjeta" data-transition="flip"><i class="fa fa-credit-card"></i></a><br><span class="spanfooter">Tarjeta</span></li>
+		</ul>
+	</div>
+</body>
+</html>
